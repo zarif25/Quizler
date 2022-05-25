@@ -39,6 +39,19 @@ class _QuestionScreenState extends State<QuestionScreen> {
     });
   }
 
+  void onSkipPress() {
+    setState(() {
+      isOptionSelected = true;
+      for (int i = 0; i < 4; i++) {
+        optionStatuses[i] = OptionStatus.disabled;
+      }
+      int correctIndex = widget.options.indexOf(widget.question.correct);
+      optionStatuses[correctIndex] = OptionStatus.correct;
+    });
+  }
+
+  void onNextPress() {}
+
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -86,7 +99,7 @@ class _QuestionScreenState extends State<QuestionScreen> {
                       optionStatus: optionStatuses[i],
                     ),
                   NeubrutalButton(
-                    onPress: () {},
+                    onPress: isOptionSelected ? onNextPress : onSkipPress,
                     color: KColors.primary,
                     child: Center(
                       child: Text(
