@@ -144,16 +144,6 @@ class NeubrutalButton extends StatelessWidget {
               offset: Offset(1, 1),
             ),
           ],
-          // border: Border(
-          //   left: BorderSide(
-          //       color: KColors.pureBlack, width: 1),
-          //   top: BorderSide(
-          //       color: KColors.pureBlack, width: 1),
-          //   bottom: BorderSide(
-          //       color: KColors.pureBlack, width: 3),
-          //   right: BorderSide(
-          //       color: KColors.pureBlack, width: 3),
-          // ),
           borderRadius: BorderRadius.circular(3.0),
         ),
         child: Padding(
