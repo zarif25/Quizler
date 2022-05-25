@@ -23,11 +23,18 @@ class MyApp extends StatelessWidget {
           backgroundColor: KColors.pureWhite,
           foregroundColor: KColors.pureBlack,
           elevation: 0,
+          titleTextStyle: TextStyle(
+            fontFamily: 'InriaSans',
+            color: KColors.pureBlack,
+            fontSize: 26,
+            letterSpacing: 3,
+          ),
         ),
         scaffoldBackgroundColor: KColors.pureWhite,
       ),
       home: QuestionScreen(
-        question: Question(questionText: "aboltabol?", options: ["a", "b", "c", "d"]),
+        question:
+            Question(questionText: "aboltabol?", options: ["a", "b", "c", "d"]),
       ),
     );
   }

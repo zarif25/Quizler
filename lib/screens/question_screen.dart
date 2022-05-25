@@ -56,7 +56,7 @@ class _QuestionScreenState extends State<QuestionScreen> {
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(
-        title: const Text('Q U I Z L E R'),
+        title: const Text('QUIZLER'),
         centerTitle: true,
       ),
       body: Padding(
@@ -84,7 +84,7 @@ class _QuestionScreenState extends State<QuestionScreen> {
             ),
             const SizedBox(height: 8),
             Text(
-              widget.question.questionText,
+              'Q: ${widget.question.questionText}',
               style: const TextStyle(fontSize: 24),
             ),
             Expanded(
