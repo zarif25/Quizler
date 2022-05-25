@@ -23,12 +23,10 @@ class Question {
     options.shuffle();
     return options;
   }
-
-  
 }
 
 void main(List<String> args) {
-  var q = Quiz(
+  Quiz(
     questionList: [
       Question(questionText: "aboltabol?", options: ["a", "b", "c", "d"]),
       Question(questionText: "habijabi?", options: ["a", "b", "c", "d"]),
