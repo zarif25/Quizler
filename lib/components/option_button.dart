@@ -2,7 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:quizler/components/neubrutal_button.dart';
 import 'package:quizler/constants.dart';
 
-enum OptionStatus { enabled, disabled, correct, incorrect }
+enum OptionStatus { enabled, correct, incorrect }
 
 class OptionButton extends StatelessWidget {
   final String number, option;
@@ -24,8 +24,6 @@ class OptionButton extends StatelessWidget {
         return KColors.incorrect;
       case OptionStatus.enabled:
         return KColors.primary;
-      case OptionStatus.disabled:
-        return KColors.gray;
     }
   }
 
@@ -37,8 +35,6 @@ class OptionButton extends StatelessWidget {
         return KColors.incorrect;
       case OptionStatus.enabled:
         return KColors.pureBlack;
-      case OptionStatus.disabled:
-        return KColors.gray;
     }
   }
 
@@ -49,8 +45,6 @@ class OptionButton extends StatelessWidget {
       case OptionStatus.incorrect:
         return KColors.incorrectLight;
       case OptionStatus.enabled:
-        return KColors.pureWhite;
-      case OptionStatus.disabled:
         return KColors.pureWhite;
     }
   }

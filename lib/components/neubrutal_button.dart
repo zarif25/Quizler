@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:quizler/components/neubrutal_box_decoration.dart';
 import 'package:quizler/constants.dart';
 
 class NeubrutalButton extends StatelessWidget {
@@ -20,17 +21,8 @@ class NeubrutalButton extends StatelessWidget {
       child: GestureDetector(
         onTap: onPress,
         child: Container(
-          decoration: BoxDecoration(
-            color: color,
-            boxShadow: [
-              BoxShadow(
-                color: borderColor,
-                spreadRadius: 2,
-                offset: const Offset(1, 1),
-              ),
-            ],
-            borderRadius: BorderRadius.circular(3.0),
-          ),
+          decoration:
+              neubrutalBoxDecoration(color: color, borderColor: borderColor),
           child: Padding(
             padding: const EdgeInsets.symmetric(vertical: 14, horizontal: 24),
             child: child,

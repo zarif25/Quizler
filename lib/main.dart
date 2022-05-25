@@ -20,7 +20,7 @@ class MyApp extends StatelessWidget {
           ),
         ),
         appBarTheme: const AppBarTheme(
-          backgroundColor: KColors.pureWhite,
+          backgroundColor: KColors.background,
           foregroundColor: KColors.pureBlack,
           elevation: 0,
           titleTextStyle: TextStyle(
@@ -30,11 +30,15 @@ class MyApp extends StatelessWidget {
             letterSpacing: 3,
           ),
         ),
-        scaffoldBackgroundColor: KColors.pureWhite,
+        scaffoldBackgroundColor: KColors.background,
       ),
       home: QuestionScreen(
-        question:
-            Question(questionText: "aboltabol?", options: ["a", "b", "c", "d"]),
+        question: Question(
+          questionText: 'How many types of widgets are there in Flutter?',
+          options: ['2', '1', '3', '4'],
+        ),
+        serial: 4,
+        numberOfQuestions: 13,
       ),
     );
   }

@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:quizler/components/neubrutal_box_decoration.dart';
 import 'package:quizler/constants.dart';
 import 'package:quizler/quiz_brain.dart';
 import 'package:quizler/components/neubrutal_button.dart';
@@ -6,9 +7,15 @@ import 'package:quizler/components/option_button.dart';
 
 class QuestionScreen extends StatefulWidget {
   final Question question;
+  final int serial, numberOfQuestions;
   late final List<String> options;
 
-  QuestionScreen({Key? key, required this.question}) : super(key: key) {
+  QuestionScreen({
+    Key? key,
+    required this.question,
+    required this.serial,
+    required this.numberOfQuestions,
+  }) : super(key: key) {
     options = question.getOptions();
   }
 
@@ -28,9 +35,6 @@ class _QuestionScreenState extends State<QuestionScreen> {
   void onOptionPress(int index) {
     setState(() {
       isOptionSelected = true;
-      for (int i = 0; i < 4; i++) {
-        optionStatuses[i] = OptionStatus.disabled;
-      }
       int correctIndex = widget.options.indexOf(widget.question.correct);
       optionStatuses[correctIndex] = OptionStatus.correct;
       if (index != correctIndex) {
@@ -42,9 +46,6 @@ class _QuestionScreenState extends State<QuestionScreen> {
   void onSkipPress() {
     setState(() {
       isOptionSelected = true;
-      for (int i = 0; i < 4; i++) {
-        optionStatuses[i] = OptionStatus.disabled;
-      }
       int correctIndex = widget.options.indexOf(widget.question.correct);
       optionStatuses[correctIndex] = OptionStatus.correct;
     });
@@ -64,23 +65,36 @@ class _QuestionScreenState extends State<QuestionScreen> {
         child: Column(
           crossAxisAlignment: CrossAxisAlignment.start,
           children: [
-            Row(
-              crossAxisAlignment: CrossAxisAlignment.baseline,
-              textBaseline: TextBaseline.alphabetic,
-              children: const [
-                Text(
-                  'QUESTION NO ',
-                  style: TextStyle(
-                    color: KColors.gray,
-                    fontWeight: FontWeight.bold,
+            Container(
+              decoration: neubrutalBoxDecoration(
+                color: KColors.primary,
+                borderColor: KColors.pureBlack,
+              ),
+              padding: const EdgeInsets.all(8),
+              child: Row(
+                mainAxisAlignment: MainAxisAlignment.end,
+                mainAxisSize: MainAxisSize.min,
+                crossAxisAlignment: CrossAxisAlignment.baseline,
+                textBaseline: TextBaseline.alphabetic,
+                children: [
+                  const Text(
+                    '# ',
+                    style: TextStyle(color: KColors.pureWhite),
                   ),
-                ),
-                Text(
-                  '4',
-                  style: TextStyle(fontSize: 24),
-                ),
-                Text('/13'),
-              ],
+                  Text(
+                    widget.serial.toString(),
+                    style: const TextStyle(
+                      fontSize: 20,
+                      color: KColors.pureWhite,
+                      fontWeight: FontWeight.bold,
+                    ),
+                  ),
+                  Text(
+                    '/${widget.numberOfQuestions}',
+                    style: const TextStyle(color: KColors.pureWhite),
+                  ),
+                ],
+              ),
             ),
             const SizedBox(height: 8),
             Text(
